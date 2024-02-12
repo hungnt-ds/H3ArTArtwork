@@ -51,7 +51,7 @@
                         <i class="bx bx-envelope"></i>
                     </div>
                     <div class="input-box" style="margin-bottom: 10px;">
-                        <select asp-for="Input.Gender" id="genderSelect" class="input-field" onchange="updateGenderValue()">
+                        <select asp-for="Input.Gender" id="genderSelect" class="input-field">
                             <option value="" disabled selected>Select Gender</option>
                             <option value="true" style="color: black;">Male</option>
                             <option value="false" style="color: black;">Female</option>
@@ -92,14 +92,6 @@
     </div>
 </body>
 </html>
-<script>
-    function updateGenderValue() {
-        var selectBox = document.getElementById("genderSelect");
-        var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-
-        document.getElementById("genderSelect").value = selectedValue;
-    }
-</script>
 
 
 @section Scripts {
