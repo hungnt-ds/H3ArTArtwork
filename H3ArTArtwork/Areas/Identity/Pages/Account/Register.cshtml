@@ -17,12 +17,13 @@
             width: 100%; /* Set the input box width to 100% */
         }
     </style>
+
 </head>
 <body>
     <div class="wrapper">
         <nav class="nav">
             <div class="nav-logo">
-                <a href="#" class=""><img src="~/image/login/whitelogo.png" alt="logo" /></a>
+                <a href="/" class=""><img src="~/image/login/whitelogo.png" alt="logo" /></a>
             </div>
             <div class="nav-button">
                 <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
@@ -35,20 +36,23 @@
                 <!------------------- registration form -------------------------->
                 <div id="register">
                     <div class="top">
+                        <a href="/" class="backHome"><i class="bx bx-chevron-left"></i>Back To Home</a>
                         <span>Have an account? <a href="./Login" onclick="login()">Login</a></span>
                         <header>Sign Up</header>
                     </div>
                     <div class="two-forms">
                         <div class="input-box">
                             <input asp-for="Input.FullName" aria-required="true" type="text" class="input-field" placeholder="Full Name" />
-                            <span asp-validation-for="Input.FullName" class="text-danger"></span>
                             <i class="bx bx-user"></i>
+                            <span asp-validation-for="Input.FullName" class="text-danger"></span>
+
                         </div>
                     </div>
                     <div class="input-box">
                         <input asp-for="Input.Email" autocomplete="username" aria-required="true" type="text" class="input-field" placeholder="Email" />
-                        <span asp-validation-for="Input.Email" class="text-danger"></span>
                         <i class="bx bx-envelope"></i>
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+
                     </div>
                     <div class="input-box" style="margin-bottom: 10px;">
                         <select asp-for="Input.Gender" id="genderSelect" class="input-field" onchange="updateGenderValue(this)">
@@ -61,8 +65,9 @@
 
                     <div class="input-box">
                         <input asp-for="Input.Password" autocomplete="new-password" aria-required="true" type="password" class="input-field" placeholder="Password" />
-                        <span asp-validation-for="Input.Password" class="text-danger"></span>
                         <i class="bx bx-lock-alt"></i>
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+
                     </div>
                     <div class="input-box">
                         <input asp-for="Input.ConfirmPassword" autocomplete="new-password" aria-required="true" type="password" class="input-field" placeholder="Confirm Password" />
