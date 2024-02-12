@@ -1,0 +1,107 @@
+﻿@page
+@model RegisterModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>H3Art</title>
+    <style>
+        .input-box {
+            width: 100%; /* Set the input box width to 100% */
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <a href="#" class=""><img src="~/image/login/whitelogo.png" alt="logo" /></a>
+            </div>
+            <div class="nav-button">
+                <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
+            </div>
+        </nav>
+
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <!----------------------------- Form box ----------------------------------->
+            <div class="form-box">
+                <!------------------- registration form -------------------------->
+                <div id="register">
+                    <div class="top">
+                        <span>Have an account? <a href="./Login" onclick="login()">Login</a></span>
+                        <header>Sign Up</header>
+                    </div>
+                    <div class="two-forms">
+                        <div class="input-box">
+                            <input asp-for="Input.FullName" aria-required="true" type="text" class="input-field" placeholder="Full Name" />
+                            <span asp-validation-for="Input.FullName" class="text-danger"></span>
+                            <i class="bx bx-user"></i>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <input asp-for="Input.Email" autocomplete="username" aria-required="true" type="text" class="input-field" placeholder="Email" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        <i class="bx bx-envelope"></i>
+                    </div>
+                    <div class="input-box" style="margin-bottom: 10px;">
+                        <select asp-for="Input.Gender" id="genderSelect" class="input-field" onchange="updateGenderValue()">
+                            <option value="" disabled selected>Select Gender</option>
+                            <option value="true" style="color: black;">Male</option>
+                            <option value="false" style="color: black;">Female</option>
+                        </select>
+
+                        <i class='bx bx-male-female'></i>
+                        <span asp-validation-for="Input.Gender" class="text-danger"></span>
+
+                    </div>
+
+
+
+                    <div class="input-box">
+                        <input asp-for="Input.Password" autocomplete="new-password" aria-required="true" type="password" class="input-field" placeholder="Password" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        <i class="bx bx-lock-alt"></i>
+                    </div>
+                    <div class="input-box">
+                        <input asp-for="Input.ConfirmPassword" autocomplete="new-password" aria-required="true" type="password" class="input-field" placeholder="Confirm Password" />
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                        <i class="bx bx-lock-alt"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="submit" class="submit" value="Register" />
+                    </div>
+                    <div class="two-col">
+                        <div class="one">
+                            <input type="checkbox" id="register-check" />
+                            <label for="register-check"> Remember Me</label>
+                        </div>
+                        <div class="two">
+                            <label><a href="#">Terms & conditions</a></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+<script>
+    function updateGenderValue() {
+        var selectBox = document.getElementById("genderSelect");
+        var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+
+        document.getElementById("genderSelect").value = selectedValue;
+    }
+</script>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
