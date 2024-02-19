@@ -19,6 +19,14 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LogoutPath = $"/Identity/Account/Logout";
     options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
 });
+
+//add facebook
+builder.Services.AddAuthentication().AddFacebook(option =>
+{
+    option.AppId = "2212394772452011";
+    option.AppSecret = "30a380a6edd236d23aaf52d7b222cb5d";
+});
+
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
 
