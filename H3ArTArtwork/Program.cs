@@ -1,5 +1,7 @@
 
 using H3ArT.DataAccess.Data;
+using H3ArT.DataAccess.Repository;
+using H3ArT.DataAccess.Repository.IRepository;
 using H3ArT.Utility;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -28,6 +30,7 @@ builder.Services.AddAuthentication().AddFacebook(option =>
 });
 
 builder.Services.AddRazorPages();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
 
 var app = builder.Build();
