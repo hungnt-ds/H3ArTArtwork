@@ -30,6 +30,7 @@ builder.Services.AddAuthentication().AddFacebook(option =>
 });
 
 builder.Services.AddRazorPages();
+//adding UnitOfWork
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
 
@@ -45,7 +46,6 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
