@@ -11,7 +11,7 @@ namespace H3ArT.Utility
     {
         public Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
-            return Task.CompletedTask;
+            return Task.CompletedTask; /////
         }
     }
 }
