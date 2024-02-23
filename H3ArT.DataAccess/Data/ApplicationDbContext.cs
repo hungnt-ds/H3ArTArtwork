@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using H3ArT.Models;
+using H3ArT.Models.Models;
 
 namespace H3ArT.DataAccess.Data
 {
@@ -19,6 +20,7 @@ namespace H3ArT.DataAccess.Data
         }
 
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<Category> TblCategory { get; set; }
         
     }
 }

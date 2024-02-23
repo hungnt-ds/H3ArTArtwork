@@ -10,6 +10,7 @@ namespace H3ArT.DataAccess.Repository.IRepository
     {
         //Single Interface
         //Eg: ICategoryRepository CategoryRepository {get;}
+        ICategoryRepository CategoryObj { get; }
         void Save();
     }
 }
